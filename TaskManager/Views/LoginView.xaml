@@ -1,0 +1,27 @@
+﻿<catel:DataWindow x:Class="TaskManager.Views.LoginView"
+                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                  xmlns:catel="http://schemas.catelproject.com">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Имя пользователя:" Margin="5"/>
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Пароль"  Margin="5"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding UserName}" Margin="5" Width="120"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Password}" Margin="5" Width="120"/>
+        <CheckBox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="5" IsChecked="{Binding IsNewUser}" Content="Регистрация"/>
+    </Grid>
+
+</catel:DataWindow>

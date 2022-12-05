@@ -1,0 +1,46 @@
+﻿<catel:Window x:Class="TaskManager.Views.MainWindow"
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:catel="http://schemas.catelproject.com"
+              ResizeMode="CanResize" Width="1280" Height="960" WindowStartupLocation="CenterScreen">
+
+     <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <ToolBar Grid.Row="0" Grid.Column="0">
+                      
+            <Button Command="{Binding NewtaskCommand}">Новая задача</Button>
+            <Separator/>
+            <Button Command="{Binding EdittaskCommand}">Изменить задачу</Button>
+            <Separator/>
+            <Button Command="{Binding FinishtaskCommand}">Завершить задачу</Button>
+            <Separator/>
+        </ToolBar>
+        <ListBox Grid.Row="1" ItemsSource="{Binding Path=CurrentUser.Tasks}" SelectedItem="{Binding SelectedTask}">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                </Style>
+            </ListBox.ItemContainerStyle>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding DueDate, StringFormat=dd.MM.yyyy hh:mm}"/>
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Description}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+    
+</catel:Window>
